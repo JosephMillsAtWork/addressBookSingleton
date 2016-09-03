@@ -26,9 +26,9 @@ Window {
 
     // Here we add more connection points to read the signals and slots
     Connections{
-        target: MiddleMan
+        target: JSONModels
         onIsRunningChanged:{
-            console.log("Running changed to  " + MiddleMan.isRunning)
+            console.log("Running changed to  " + JSONModels.isRunning)
         }
     }
 }

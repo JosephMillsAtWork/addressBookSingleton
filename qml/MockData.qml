@@ -4,8 +4,8 @@ import QtQuick.Controls 1.4
 import org.joseph.awesome 1.0
 Item {
     Component.onCompleted: {
-        MiddleMan.modelType = MiddleMan.MockData
-        MiddleMan.reFill();
+        JSONModels.modelType = JSONModels.MockData
+        JSONModels.reFill();
     }
     Column{
         anchors.fill: parent
@@ -14,14 +14,14 @@ Item {
             width: parent.width
             anchors.horizontalCenter: parent.horizontalCenter
             text: qsTr("Re-Fill Model")
-            onClicked: MiddleMan.reFill();
+            onClicked: JSONModels.reFill();
         }
         Text {
             width: parent.width
             height: refillButton.height - 4
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
-            text: "Is The Model Updating ? " + MiddleMan.isRunning
+            text: "Is The Model Updating ? " + JSONModels.isRunning
             color: "black"
 
         }
@@ -31,7 +31,7 @@ Item {
             width: parent.width
             height: parent.height - (refillButton.height *2)
             clip: true
-            model: MiddleMan.mockModel
+            model: JSONModels.mockModel
             delegate:
                 Rectangle{
                 width: parent.width
@@ -53,13 +53,6 @@ Item {
                           + " <br/><b> BitCoin Address:</b> " + model.bitcoinAddress
                           + " <br/><b>Credit card number : </b>  " + model.ccName
                           + " <br/><b>Credit card Type : </b>  " + model.ccNumber
-                }
-
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked:{
-                        MiddleMan.activeChanged(index)
-                    }
                 }
             }
         }

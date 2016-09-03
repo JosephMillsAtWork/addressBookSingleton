@@ -5,8 +5,8 @@ import org.joseph.awesome 1.0
 
 Item {
     Component.onCompleted: {
-        MiddleMan.modelType = MiddleMan.Address
-        MiddleMan.reFill();
+        JSONModels.modelType = JSONModels.Address
+        JSONModels.reFill();
     }
     Column{
         anchors.fill: parent
@@ -15,14 +15,14 @@ Item {
             width: parent.width
             anchors.horizontalCenter: parent.horizontalCenter
             text: qsTr("Re-Fill Model")
-            onClicked: MiddleMan.reFill();
+            onClicked: JSONModels.reFill();
         }
         Text {
             width: parent.width
             height: refillButton.height - 4
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
-            text: "Is The Model Updating ? " + MiddleMan.isRunning
+            text: "Is The Model Updating ? " + JSONModels.isRunning
             color: "black"
 
         }
@@ -32,7 +32,7 @@ Item {
             width: parent.width
             height: parent.height - (refillButton.height *2)
             clip: true
-            model: MiddleMan.addressModel
+            model: JSONModels.addressModel
             delegate:
                 Rectangle{
                 width: parent.width
@@ -56,7 +56,7 @@ Item {
                     anchors.fill: parent
                     onClicked:{
                         model.active = !model.active
-                        MiddleMan.activeChanged(index)
+                        JSONModels.activeChanged(index)
                     }
                 }
             }

@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterSingletonType<JsonMoldelCPP>(
       "org.joseph.awesome",1,0,                             // import name/ver
-      "MiddleMan",                           // qml type name
+      "JSONModels",                           // qml type name
       modelAsProperty );                           // provider
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
