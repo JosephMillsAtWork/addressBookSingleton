@@ -6,11 +6,13 @@ CONFIG += c++11
 
 SOURCES += src/main.cpp \
     src/jsonmoldelcpp.cpp \
-    src/addressmodel.cpp
+    src/addressmodel.cpp \
+    src/mockmodel.cpp
 
 HEADERS += \
     src/jsonmoldelcpp.h \
-    src/addressmodel.h
+    src/addressmodel.h \
+    src/mockmodel.h
 
 
 RESOURCES += qml/qml.qrc

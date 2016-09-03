@@ -19,6 +19,7 @@
 #include "QQmlPtrPropertyHelpers.h"
 
 #include "addressmodel.h"
+#include "mockmodel.h"
 
 
 #ifndef JSONMOLDELCPP_H
@@ -28,10 +29,11 @@ class JsonMoldelCPP : public QObject
     Q_OBJECT
     QML_READONLY_CSTREF_PROPERTY(QString,errorString)
     QML_READONLY_PTR_PROPERTY(AddressModel, addressModel)
+    QML_READONLY_PTR_PROPERTY(MockDataModel, mockModel)
 
     Q_PROPERTY(bool isRunning READ isRunning NOTIFY isRunningChanged)
-
-
+    Q_PROPERTY(ModelType modelType READ modelType WRITE setModelType NOTIFY modelTypeChanged)
+    Q_ENUMS(ModelType)
 public:
     explicit JsonMoldelCPP(QObject *parent = 0);
     Q_INVOKABLE void getJson();
@@ -40,6 +42,12 @@ public:
     Q_INVOKABLE void reFill();
     Q_INVOKABLE void activeChanged(const int &modelIndex);
 
+    enum ModelType{
+        Address,
+        MockData
+    };
+    ModelType modelType ()const;
+    void setModelType(const ModelType &modelType);
 
 signals:
     QString error(const QString&);
@@ -47,6 +55,8 @@ signals:
     void running(bool);
     // qml
     void isRunningChanged();
+    void modelTypeChanged();
+
 
 public slots:
     void handelError(const QString &errStr);
@@ -58,9 +68,12 @@ private :
     QNetworkAccessManager *m_pNetworkAccessManager;
     AddressModel mjsonModel;
     bool m_running;
+    ModelType m_modelType;
+    MockDataModel mMockModel;
 
 
 };
 Q_DECLARE_METATYPE(AddressModel*)
+Q_DECLARE_METATYPE(MockDataModel*)
 
 #endif // JSONMOLDELCPP_H

@@ -6,7 +6,6 @@
 #include "QQmlAutoPropertyHelpers.h"
 
 #include "QQmlObjectListModel.h"
-#include "QQmlPtrPropertyHelpers.h"
 
 
 
@@ -34,6 +33,11 @@ public:
 
     { }
 };
+
+
+
+
+
 
 
 class AddressModel : public QQmlObjectListModel<AddressModellItem> {};
