@@ -16,6 +16,7 @@ class AddressModellItem : public QObject {
     QML_CONSTANT_CSTREF_PROPERTY (QString, first)
     QML_CONSTANT_CSTREF_PROPERTY (QString, last)
     QML_CONSTANT_CSTREF_PROPERTY (QString, avatar)
+    QML_WRITABLE_CSTREF_PROPERTY(bool,active)
 
 public:
     explicit AddressModellItem (
@@ -23,11 +24,14 @@ public:
             ,const QString &fi
             ,const QString &la
             ,const QString &av
+            ,const bool &active
             ) :
           m_ids(ids),
           m_first(fi),
           m_last(la),
-          m_avatar(av)
+          m_avatar(av),
+          m_active(active)
+
     { }
 };
 

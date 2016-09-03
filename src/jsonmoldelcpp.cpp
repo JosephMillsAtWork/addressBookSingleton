@@ -75,9 +75,10 @@ void JsonMoldelCPP::replyFinished(QNetworkReply *reply)
             m_addressModel->prepend(
                         new AddressModellItem (
                             obj["id"].toString(),
-                        obj["first"].toString(),
-                    obj["last"].toString(),
-                    obj["avatar"].toString()
+                            obj["first"].toString(),
+                            obj["last"].toString(),
+                            obj["avatar"].toString(),
+                            false
                     )
                     );
         }
@@ -102,4 +103,9 @@ void JsonMoldelCPP::reFill()
         m_addressModel->clear();
     }
     getJson();
+}
+
+void JsonMoldelCPP::activeChanged(const int &modelIndex)
+{
+    qDebug() << "Here We should do Something with another class or whatever at this index  " << modelIndex ;
 }

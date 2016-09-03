@@ -38,6 +38,7 @@ public:
 
     bool isRunning()const;
     Q_INVOKABLE void reFill();
+    Q_INVOKABLE void activeChanged(const int &modelIndex);
 
 
 signals:
