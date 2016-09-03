@@ -66,13 +66,10 @@ Window {
 
 
     // Here we add more connection points to read the signals and slots
-
     Connections{
         target: MiddleMan
         onIsRunningChanged:{
             console.log("Running changed to  " + MiddleMan.isRunning)
         }
     }
-
-
 }
